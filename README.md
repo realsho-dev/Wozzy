@@ -1,5 +1,5 @@
 # README.md
-# Kuro-bot V2
+# Baddie
 
 A versatile Discord bot with moderation, utility, and AI features, built with Python and `discord.py`. Uses Together AI for natural language responses.
 
@@ -12,5 +12,5 @@ A versatile Discord bot with moderation, utility, and AI features, built with Py
 ## Setup
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/Kuro-bot-V2.git
-   cd Kuro-bot-V2
+   git clone https://github.com/realsho-dev/baddie.git
+   cd Baddie
