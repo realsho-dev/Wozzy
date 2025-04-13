@@ -1,5 +1,5 @@
 # README.md
-# Baddie
+# Wozzy
 
 A versatile Discord bot with moderation, utility, and AI features, built with Python and `discord.py`. Uses Together AI for natural language responses.
 
