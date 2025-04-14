@@ -3,7 +3,7 @@ import asyncio
 
 custom_statuses = [
     {"type": "listening", "message": "-help"},
-    {"type": "game", "message": "-ask to ask anything to AI"},
+    {"type": "game", "message": "-ask to talk with AI"},
     {"type": "watching", "message": "{members} members"},
 ]
 
