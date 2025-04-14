@@ -22,7 +22,6 @@ def setup_utility(bot):
                 description=f"Emoji: {emoji}\nName: {name}",
                 color=0x9ACD32
             )
-            embed.set_footer(text=f"By {ctx.author}")
             await ctx.send(embed=embed)
         else:
             await ctx.send(embed=discord.Embed(title="Error", description="Invalid URL", color=0xCD5C5C))
@@ -39,7 +38,6 @@ def setup_utility(bot):
             description=f"Target: {member.name}\nRole: {role.name}",
             color=0x9ACD32
         )
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="afk")
@@ -49,7 +47,6 @@ def setup_utility(bot):
             description=f"User: {ctx.author.name}\nMessage: {message}",
             color=0x4682B4
         )
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="avatar")
@@ -61,7 +58,6 @@ def setup_utility(bot):
             color=0x4682B4
         )
         embed.set_image(url=member.avatar.url if member.avatar else member.default_avatar.url)
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="botinfo")
@@ -82,7 +78,6 @@ def setup_utility(bot):
         embed.add_field(name="Latency", value=f"{round(bot.latency * 1000)}ms", inline=True)
         embed.add_field(name="Creator", value="Ayanokouji", inline=True)
         embed.set_thumbnail(url=bot.user.avatar.url)
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="channelinfo")
@@ -99,7 +94,6 @@ def setup_utility(bot):
         embed.add_field(name="Position", value=channel.position, inline=True)
         embed.add_field(name="Category", value=channel.category.name if channel.category else "None", inline=True)
         embed.add_field(name="Slowmode", value=f"{channel.slowmode_delay}s" if channel.slowmode_delay else "Off", inline=True)
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="clearafk")
@@ -109,7 +103,6 @@ def setup_utility(bot):
             description=f"User: {ctx.author.name}",
             color=0x4682B4
         )
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="createrole")
@@ -124,7 +117,6 @@ def setup_utility(bot):
             description=f"Role: {role.name}",
             color=0x9ACD32
         )
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="deleteemoji")
@@ -141,7 +133,6 @@ def setup_utility(bot):
                 description=f"Name: {name}",
                 color=0xCD5C5C
             )
-            embed.set_footer(text=f"By {ctx.author}")
             await ctx.send(embed=embed)
         else:
             await ctx.send(embed=discord.Embed(title="Error", description=f"Name: {name} not found", color=0xCD5C5C))
@@ -158,7 +149,6 @@ def setup_utility(bot):
             description=f"Role: {role.name}",
             color=0xCD5C5C
         )
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="editnickname")
@@ -174,7 +164,6 @@ def setup_utility(bot):
             description=f"Old: {old_nick}\nNew: {nickname}",
             color=0x9ACD32
         )
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="emotes")
@@ -185,7 +174,6 @@ def setup_utility(bot):
             description=f"Emojis: {emotes}",
             color=0x4682B4
         )
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="listroles")
@@ -196,7 +184,6 @@ def setup_utility(bot):
             description=f"Roles: {roles}",
             color=0x4682B4
         )
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="ping")
@@ -206,7 +193,6 @@ def setup_utility(bot):
             description=f"Latency: {round(bot.latency * 1000)}ms",
             color=0x4682B4
         )
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="removerole")
@@ -221,7 +207,6 @@ def setup_utility(bot):
             description=f"Target: {member.name}\nRole: {role.name}",
             color=0xCD5C5C
         )
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="roleinfo")
@@ -241,7 +226,6 @@ def setup_utility(bot):
         embed.add_field(name="Hoisted", value="Yes" if role.hoist else "No", inline=True)
         embed.add_field(name="Mentionable", value="Yes" if role.mentionable else "No", inline=True)
         embed.add_field(name="Permissions", value=", ".join([p[0].replace("_", " ").title() for p in role.permissions if p[1]]) or "None", inline=False)
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="servericon")
@@ -255,7 +239,6 @@ def setup_utility(bot):
             color=0x4682B4
         )
         embed.set_image(url=ctx.guild.icon.url)
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="serverinfo")
@@ -279,7 +262,6 @@ def setup_utility(bot):
         embed.add_field(name="Verification", value=str(guild.verification_level).capitalize(), inline=True)
         if guild.icon:
             embed.set_thumbnail(url=guild.icon.url)
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
 
     @bot.hybrid_command(name="userinfo")
@@ -300,5 +282,4 @@ def setup_utility(bot):
         embed.add_field(name="Roles", value=", ".join([r.name for r in member.roles[1:]]), inline=False)
         embed.add_field(name="Bot", value="Yes" if member.bot else "No", inline=True)
         embed.set_thumbnail(url=member.avatar.url if member.avatar else member.default_avatar.url)
-        embed.set_footer(text=f"By {ctx.author}")
         await ctx.send(embed=embed)
