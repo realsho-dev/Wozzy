@@ -1,4 +1,4 @@
-# moderation.py
+#moderation.py
 from discord.ext import commands
 import discord
 import asyncio
@@ -6,15 +6,16 @@ import asyncio
 log_channel = None
 
 def setup_moderation(bot):
-    async def log_action(action, target, reason, moderator):
+    async def log_action(action, target, reason, moderator, extra_info=""):
         if log_channel:
             channel = bot.get_channel(log_channel)
             if channel:
-                await channel.send(embed=discord.Embed(
+                embed = discord.Embed(
                     title=f"Log: {action}",
-                    description=f"Target: {target}\nReason: {reason or 'None'}\nBy: {moderator}",
+                    description=f"Target: {target}\nReason: {reason or 'None'}\nBy: {moderator}\n{extra_info}",
                     color=0x708090
-                ))
+                )
+                await channel.send(embed=embed)
 
     @bot.hybrid_command(name="ban")
     @commands.has_permissions(ban_members=True)
