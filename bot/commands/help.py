@@ -69,7 +69,6 @@ def setup_help(bot):
             )
             commands_text = "\n".join([f"`{cmd['name']}` - {cmd['description']}" for cmd in COMMANDS[category]])
             embed.add_field(name="Commands", value=commands_text or "No commands", inline=False)
-            embed.set_footer(text="Created by Ayanokouji")
             await interaction.response.edit_message(embed=embed, view=self.view)
 
     class HelpView(ui.View):
@@ -77,17 +76,16 @@ def setup_help(bot):
             super().__init__(timeout=None)
             self.add_item(HelpSelect())
 
-    @bot.hybrid_command(name="help")
+    @bot.hybrid_command(name="help", description="View command help and bot info. Made by Ayanokouji.")
     async def help_command(ctx: commands.Context, arg: str = None):
         if not arg:
             embed = discord.Embed(
                 title="Command Overview",
-                description="A versatile bot for server management and AI interaction.\nCrafted by Ayanokouji for seamless Discord control.",
+                description="A versatile bot for server management and AI interaction.\nMade by Ayanokouji.",
                 color=0x4682B4
             )
             embed.add_field(name="Instructions", value=f"Explore commands by category or specify `{bot.command_prefix}help <command>`", inline=False)
             embed.set_thumbnail(url=bot.user.avatar.url)
-            embed.set_footer(text="Created by Ayanokouji")
             view = HelpView()
             await ctx.send(embed=embed, view=view)
         else:
@@ -102,7 +100,6 @@ def setup_help(bot):
                         )
                         embed.add_field(name="Syntax", value=f"`{cmd['syntax'].format(prefix=bot.command_prefix)}`", inline=False)
                         embed.add_field(name="Example", value=f"`{cmd['example'].format(prefix=bot.command_prefix)}`", inline=False)
-                        embed.set_footer(text="Created by Ayanokouji")
                         await ctx.send(embed=embed)
                         return
             await ctx.send(embed=discord.Embed(title="Error", description="Command not found", color=0xCD5C5C))
